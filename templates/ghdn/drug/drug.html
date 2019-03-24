@@ -1,0 +1,57 @@
+<title>Gene</title>
+
+{% extends 'ghdn/index.html' %}
+
+{% block content %}
+    <style>
+        .client-content{
+            width:80%;
+           
+            background-color: white;
+            margin:auto;
+            margin-top:20px;
+            margin-bottom:20px;
+            border: 1px solid #FFFFFF;
+        }
+
+    </style>
+    <div class="layui-row layui-col-space10 client-content">
+
+        <blockquote class="layui-elem-quote">drug list</blockquote>
+        <div class="layui-col-md12" >
+            {% if session['roleid']==0 %}
+                    <a class="layui-btn" href="{{ url_for('drug.drug_form') }}">drug add</a>
+            {% endif %}
+
+            <table class="layui-table">
+              <colgroup>
+                <col width="300">
+                <col width="400" >
+                <col width="100">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>number</th>
+                  <th>name</th>
+                  <th>operation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in data  %}
+                <tr>
+                  <td>{{ row.fid }}</td>
+                  <td>{{ row.drug }}</td>
+                  <td><a style="color:	#00BFFF;" href="detail?id={{ row.id }}">details</a></td>
+                </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

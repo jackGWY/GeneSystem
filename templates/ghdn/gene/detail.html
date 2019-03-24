@@ -1,0 +1,98 @@
+<title>drugDetail</title>
+
+{% extends 'ghdn/index.html' %}
+
+{% block content %}
+    <style>
+        .client-content{
+            width:80%;
+            
+            background-color: white;
+            margin:auto;
+            margin-top:20px;
+            margin-bottom:20px;
+            border: 1px solid #FFFFFF;
+        }
+
+    table{border-collapse: collapse;width:1000px;}
+    table tr{
+        border: none;
+    }
+    table tr td{
+        border: none;
+    }
+    .label{
+
+        display: block;
+        color:black;
+        text-align: right;
+    }
+    table tr td.value{
+        text-align: left;
+
+
+    }
+
+    </style>
+    <div class="layui-row layui-col-space10 client-content">
+
+        <blockquote class="layui-elem-quote">network detail</blockquote>
+        <div class="layui-col-md12" >
+            <table class="layui-table"   lay-skin="nob">
+                <colgroup>
+                <col width="200">
+                <col >
+
+              </colgroup>
+                <tr>
+                    <td class="label">Gene</td>
+                    <td class="value">{{ result.data.Gene }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">Definition</td>
+                    <td>{{ result.data.Definition }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">Organism</td>
+                    <td  class="value">{{ result.data.Organism }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <p>network info list</p>
+        {#网络#}
+        <div class="layui-col-md12" >
+            <table class="layui-table"   lay-skin="nob">
+                <colgroup>
+                <col width="200">
+                <col >
+
+              </colgroup>
+                <thead>
+                    <th>fid</th>
+                     <th>name</th>
+                    <th>definitionExpanded</th>
+                    <th>type</th>
+                </thead>
+                <tbody>
+
+                    {% for row in result.network %}
+                             <tr>
+                                <td>{{ row.fid }}</td>
+                                <td>{{ row.name }}</td>
+                                <td>{{ row.definitionExpanded }}</td>
+                                <td>{{ row.type }}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+
+
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

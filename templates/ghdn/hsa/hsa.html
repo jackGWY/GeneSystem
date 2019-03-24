@@ -1,0 +1,38 @@
+<title>hsa image</title>
+
+{% extends 'ghdn/index.html' %}
+{% block content %}
+    <style>
+    .client-content{
+            width:95%;
+            height:1000px;
+            background-color: white;
+            margin:auto;
+            margin-top:20px;
+            margin-bottom:20px;
+            border: 1px solid #FFFFFF;
+        }
+    </style>
+    <div class="layui-row layui-col-space10 client-content">
+    {% if id=='1' %}
+        <blockquote class="layui-elem-quote">hsa image hsa00512</blockquote>
+    {% endif %}
+    {% if id=='2' %}
+             <blockquote class="layui-elem-quote">hsa image hsa05206</blockquote>
+    {% endif %}
+    {% if id=='3' %}
+                 <blockquote class="layui-elem-quote">hsa image hsa05210</blockquote>
+    {% endif %}
+    <div class="layui-col-md12" >
+    {% if id=='1' %}
+            <image src="{{url_for('static',filename='ghdn/images/hsa00512.png')}}" style="text-align: center;width:100%;"/>
+    {% endif %}
+    {% if id=='2' %}
+            <image src="{{url_for('static',filename='ghdn/images/hsa05206.png')}}" style="text-align: center;width:100%;"/>
+    {% endif %}
+    {% if id=='3' %}
+            <image src="{{url_for('static',filename='ghdn/images/hsa05210.png')}}" style="text-align: center;width:100%;"/>
+    {% endif %}
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,128 @@
+<title>drugDetail</title>
+
+{% extends 'ghdn/index.html' %}
+
+{% block content %}
+    <style>
+        .client-content{
+            width:80%;
+           
+            background-color: white;
+            margin:auto;
+            margin-top:20px;
+            margin-bottom:20px;
+            border: 1px solid #FFFFFF;
+        }
+
+    table{border-collapse: collapse;width:1000px;}
+    table tr{
+        border: none;
+    }
+    table tr td{
+        border: none;
+    }
+    .label{
+
+        display: block;
+        color:black;
+        text-align: right;
+    }
+    table tr td.value{
+        text-align: left;
+
+
+    }
+
+    </style>
+    <div class="layui-row layui-col-space10 client-content">
+
+        <blockquote class="layui-elem-quote">network detail</blockquote>
+        <div class="layui-col-md12" >
+            <table class="layui-table"   lay-skin="nob">
+                <colgroup>
+                <col width="200">
+                <col >
+
+              </colgroup>
+                <tr>
+                    <td class="label">name</td>
+                    <td class="value">{{ result.network.name }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">definitionExpanded</td>
+                    <td>{{ result.network.definitionExpanded }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">type</td>
+                    <td  class="value">{{ result.network.type }}</td>
+                </tr>
+            </table>
+        </div>
+
+        {#通路#}
+       <p>pathway info list</p>
+        <div class="layui-col-md12" >
+            <table class="layui-table"   lay-skin="nob">
+                <colgroup>
+                <col width="200">
+                <col >
+
+              </colgroup>
+                <thead>
+                    <th>hsa_id</th>
+                     <th>disease</th>
+                </thead>
+                <tbody>
+
+                    {% for row in result.hsa %}
+                             <tr>
+                                <td>{{ row.hsa_id }}</td>
+                                <td>{{ row.disease }}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+
+
+            </table>
+        </div>
+
+
+
+
+       <p>gene info list</p>
+        {#基因#}
+        <div class="layui-col-md12" >
+            <table class="layui-table"   lay-skin="nob">
+                <colgroup>
+                <col width="200">
+                <col >
+
+              </colgroup>
+                <thead>
+                    <th>fid</th>
+                     <th>Gene</th>
+                    <th>Definition</th>
+                    <th>Organism</th>
+                </thead>
+                <tbody>
+
+                    {% for row in result.gene %}
+                             <tr>
+                                <td>{{ row.fid }}</td>
+                                <td>{{ row.Gene }}</td>
+                             <td>{{ row.Definition }}</td>
+                             <td>{{ row.Organism }}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+
+
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

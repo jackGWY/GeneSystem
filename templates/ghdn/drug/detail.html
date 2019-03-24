@@ -1,0 +1,98 @@
+<title>drugDetail</title>
+
+{% extends 'ghdn/index.html' %}
+
+{% block content %}
+    <style>
+        .client-content{
+            width:80%;
+           
+            background-color: white;
+            margin:auto;
+            margin-top:20px;
+            margin-bottom:20px;
+            border: 1px solid #FFFFFF;
+        }
+
+    table{border-collapse: collapse;width:1000px;}
+    table tr{
+        border: none;
+    }
+    table tr td{
+        border: none;
+    }
+    .label{
+
+        display: block;
+        color:black;
+        text-align: right;
+    }
+    table tr td.value{
+        text-align: left;
+
+
+    }
+
+    </style>
+    <div class="layui-row layui-col-space10 client-content">
+
+        <blockquote class="layui-elem-quote">drug detail</blockquote>
+        <div class="layui-col-md12" >
+            <table class="layui-table"   lay-skin="nob">
+                <colgroup>
+                <col width="200">
+                <col >
+
+              </colgroup>
+                <tr>
+                    <td class="label">id</td>
+                    <td class="value">{{ data.fid }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">drug</td>
+                    <td>{{ data.drug }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">type</td>
+                    <td  class="value">{{ data.type }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">description</td>
+                    <td  class="value">{{ data.description }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">indication</td>
+                    <td  class="value">{{ data.indication }}</td>
+                </tr>
+                <tr>
+                    <td class="label">pharmacodynamics</td>
+                    <td  class="value">{{ data.pharmacodynamics }}</td>
+                </tr>
+                 <tr>
+                    <td class="label">machanismOfAction</td>
+                    <td  class="value">{{ data.machanismOfAction }}</td>
+                </tr>
+                <tr>
+                    <td class="label">synonyms</td>
+                    <td  class="value">{{ data.synonyms }}</td>
+                </tr>
+                <tr>
+                    <td class="label">SafetyAndHazards</td>
+                    <td  class="value">{{ data.SafetyAndHazards }}</td>
+                </tr>
+                <tr>
+                    <td class="label">stucture</td>
+                    <td  class="value"><img src="/static/images/ghdn/{{ data.stucture }}"/></td>
+                </tr>
+
+
+
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}
